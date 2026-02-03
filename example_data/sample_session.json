@@ -1,0 +1,19 @@
+{
+  "interests": ["Natural Language Processing", "Graph Neural Networks", "Human-Computer Interaction"],
+  "countries": ["United States", "Germany"],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "results": [
+    {
+      "name": "Dr. Ada Lovelace",
+      "institution": "Example University",
+      "country": "United States",
+      "research_areas": ["NLP", "AI Safety"],
+      "top_papers": ["Transformers in Education", "Responsible AI"],
+      "email": "ada@example.edu",
+      "homepage": "https://example.edu/ada",
+      "scholar": "https://scholar.google.com/citations?user=example",
+      "match_score": 0.82
+    }
+  ]
+}

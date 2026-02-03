@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Upload Resume & Configure Inputs</h2>
+<form method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label class="form-label">Resume (PDF)</label>
+    <input type="file" name="resume" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Personal Website</label>
+    <input type="url" name="website" class="form-control" placeholder="https://your-site.com">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Research Interests (comma-separated)</label>
+    <input type="text" name="interests" class="form-control" placeholder="NLP, Computer Vision">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Target Countries</label>
+    <select name="countries" class="form-select" multiple>
+      <option>United States</option>
+      <option>United Kingdom</option>
+      <option>Canada</option>
+      <option>Germany</option>
+      <option>Singapore</option>
+      <option>Australia</option>
+    </select>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label class="form-label">LLM Provider</label>
+      <select name="provider" class="form-select">
+        <option value="openai">OpenAI</option>
+        <option value="gemini">Gemini</option>
+        <option value="groq">Groq</option>
+        <option value="huggingface">HuggingFace</option>
+        <option value="ollama">Ollama (Local)</option>
+      </select>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label">Model</label>
+      <input type="text" name="model" class="form-control" placeholder="Model name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label">API Key (stored only in session)</label>
+      <input type="password" name="api_key" class="form-control">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success">Continue</button>
+</form>
+{% endblock %}

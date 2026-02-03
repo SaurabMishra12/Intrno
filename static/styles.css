@@ -1,0 +1,9 @@
+body {
+  background-color: #f7f9fb;
+}
+.navbar-brand {
+  font-weight: 600;
+}
+.table td, .table th {
+  vertical-align: middle;
+}

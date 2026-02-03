@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Refine Interests</h2>
+<p class="text-muted">API Key: {{ redacted_api_key }}</p>
+<h5>Clarifying Questions</h5>
+<p>{{ questions }}</p>
+<form method="post" action="{{ url_for('results') }}">
+  <div class="mb-3">
+    <label class="form-label">Refined Topics</label>
+    <input type="text" name="refined" class="form-control" value="{{ refined | join(', ') }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Target Countries</label>
+    <select name="countries" class="form-select" multiple>
+      <option>United States</option>
+      <option>United Kingdom</option>
+      <option>Canada</option>
+      <option>Germany</option>
+      <option>Singapore</option>
+      <option>Australia</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" type="submit">Find Researchers</button>
+</form>
+{% endblock %}
