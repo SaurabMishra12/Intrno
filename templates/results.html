@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Matched Researchers</h2>
+<div class="mb-3">
+  <a class="btn btn-outline-secondary" href="{{ url_for('export_csv') }}">Export CSV</a>
+  <a class="btn btn-outline-secondary" href="{{ url_for('export_pdf') }}">Export PDF</a>
+</div>
+{% if graph_path %}
+  <iframe src="/{{ graph_path }}" width="100%" height="550"></iframe>
+{% endif %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Institution</th>
+      <th>Research Areas</th>
+      <th>Match Score</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for researcher in researchers %}
+      <tr>
+        <td>{{ researcher.name }}</td>
+        <td>{{ researcher.institution }}</td>
+        <td>{{ researcher.research_areas | join(', ') }}</td>
+        <td>{{ researcher.match_score }}</td>
+        <td><a class="btn btn-sm btn-primary" href="{{ url_for('professor', index=loop.index0) }}">View</a></td>
+      </tr>
+    {% else %}
+      <tr><td colspan="5">No matches found.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

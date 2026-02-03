@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <h1>Academic Researcher Discovery Platform</h1>
+    <p class="lead">Upload your resume, configure an LLM, and discover research mentors worldwide.</p>
+    <a class="btn btn-primary" href="{{ url_for('upload') }}">Start Discovery</a>
+  </div>
+  <div class="col-md-4">
+    <h5>Recent Sessions</h5>
+    <ul class="list-group">
+      {% for s in sessions %}
+        <li class="list-group-item">Session #{{ s.id }} - {{ s.created_at }}</li>
+      {% else %}
+        <li class="list-group-item">No sessions yet.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

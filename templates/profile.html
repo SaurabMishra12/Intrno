@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ professor.name }}</h2>
+<p><strong>Institution:</strong> {{ professor.institution }}</p>
+<p><strong>Country:</strong> {{ professor.country }}</p>
+<p><strong>Research Areas:</strong> {{ professor.research_areas | join(', ') }}</p>
+<p><strong>Top Papers:</strong> {{ professor.top_papers | join('; ') }}</p>
+<p><strong>Email:</strong> {{ professor.email }}</p>
+<p><strong>Homepage:</strong> <a href="{{ professor.homepage }}">{{ professor.homepage }}</a></p>
+<p><strong>Scholar:</strong> <a href="{{ professor.scholar }}">{{ professor.scholar }}</a></p>
+<p><strong>LinkedIn:</strong> <a href="{{ professor.linkedin }}">{{ professor.linkedin }}</a></p>
+<p><strong>Match Score:</strong> {{ professor.match_score }}</p>
+<form method="post" action="{{ url_for('generate_email') }}">
+  <input type="hidden" name="professor" value="{{ professor.name }}">
+  <button type="submit" class="btn btn-outline-primary">Generate Cold Email</button>
+</form>
+{% endblock %}
